@@ -1,4 +1,4 @@
-# AWS IoT 시작하기
+# AWS IoT 시작하기 (아두이노 연결)
 
 ##  준비사항
 - [LED와 DHT-11 센서를 포함한 MKR WiFi 1010 보드 설정하기](arduino-setting.html)
@@ -71,11 +71,8 @@
 1. AWS Management Console에 로그인하고 [AWS IoT 콘솔](https://console.aws.amazon.com/iot/home)을 엽니다.
 2. 왼쪽 탐색 창에서 **관리 > 사물**을 선택합니다.
 3. **사물** 페이지에서 **사물**을 선택합니다.
-
 4. **사물 생성** 페이지에서 **단일 사물 생성**을 선택하고, **다음**을 클릭합니다.
-
 5. **사물 속성 지정** 페이지의 **사물 이름** 필드에 *MyMKRWiFi1010*과 같은 사물의 이름을 입력합니다. 나머지 부분은 그대로 나두고 **다음**을  합니다.
-
 6. **디바이스 인증서 구성** 페이지에서 **CSR 업로드**를 선택합니다.
 	- **파일 선택**를 클릭한 후 앞서 생성한 CSR 파일 (csr.txt)을 열고, **다음**을 클릭합니다.
 7. 다음 화면에서 앞서 생성한 정책(*AllowEverything*)을 선택하고, **사물 생성**을 클릭합니다.
@@ -139,7 +136,6 @@
 
 			![](https://hackster.imgix.net/uploads/attachments/721807/screen_shot_2019-01-14_at_5_53_52_pm_7ncySbgoAN.png?auto=compress%2Cformat&w=680&h=510&fit=max)
 
---
 <a name="3"></a>
 ## 3. AWS IoT로 온도 값 전송 및 LED 제어
 - [2. AWS IoT Core와 아두이노 (MKR WiFi 1010) 연결하기](#2)에서 수행한 실습 설정을 바탕으로 다음 과정을 진행합니다.
@@ -181,4 +177,5 @@
 		```
 	- 결과 (시리얼 모니터창)
 		- 디바이스 섀도우 서비스가 **/update** 요청에 대해 응답하는 **$aws/things/MyMKRWiFi1010/shadow/update/delta** 주제의 메시지를 게시하는데, 아두이노 디바이스에서는 **$aws/things/MyMKRWiFi1010/shadow/update/delta** 주제를 구독하고 있으므로, 아래와 같이 수신된 **update/delta** 메시지를 처리하고 있습니다.   
+
 		![](figures/run2.png)
