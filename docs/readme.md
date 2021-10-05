@@ -70,20 +70,21 @@
 ### 2.4 레지스트리에 디바이스 등록
 1. AWS Management Console에 로그인하고 [AWS IoT 콘솔](https://console.aws.amazon.com/iot/home)을 엽니다.
 2. 왼쪽 탐색 창에서 **관리 > 사물**을 선택합니다.
-3. **사물** 페이지에서 **사물**을 선택합니다.
+3. **사물** 페이지에서 **사물 생성**을 클릭합니다.
 4. **사물 생성** 페이지에서 **단일 사물 생성**을 선택하고, **다음**을 클릭합니다.
-5. **사물 속성 지정** 페이지의 **사물 이름** 필드에 *MyMKRWiFi1010*과 같은 사물의 이름을 입력합니다. 나머지 부분은 그대로 나두고 **다음**을  합니다.
+5. **사물 속성 지정** 페이지의 **사물 이름** 필드에 *MyMKRWiFi1010*과 같은 사물의 이름을 입력합니다.
+6. **디바이스 섀도우** 에서 **이름 없는 섀도우(클래식)**을 선택한 후에 **다음**을  클릭합니다.
 6. **디바이스 인증서 구성** 페이지에서 **CSR 업로드**를 선택합니다.
 	- **파일 선택**를 클릭한 후 앞서 생성한 CSR 파일 (csr.txt)을 열고, **다음**을 클릭합니다.
 7. 다음 화면에서 앞서 생성한 정책(*AllowEverything*)을 선택하고, **사물 생성**을 클릭합니다.
 8. 이제 여러분은 **사물** 페이지에서 새롭게 등록된 사물을 확인할 수 있습니다.
 
 
-<a name="2.6"></a>
+<a name="2.5"></a>
 ### 2.5 디바이스 구성
 - 모든 디바이스에는 AWS IoT와 통신할 수 있도록 디바이스 인증서가 설치되어 있어야 합니다.
 	1. 왼쪽 탐색 창에서 **보안**을 선택하고 **인증서**를 선택합니다.
-	2. 앞서 생성한 인증서의 상자에서 ...를 선택해 드롭다운 메뉴를 연 다음 [**다운로드**]를 선택합니다.
+	2. 앞서 생성한 인증서의 상자에서 ...를 선택해 드롭다운 메뉴를 연 다음 **활성화**를 선택한 후에, [**다운로드**]를 선택합니다.
 	3. 다운로드된 인증서(*xxxxxxxxxx-certificate.perm.crt*)를 확인합니다.
 	4. 왼쪽 탐색 창에서 **설정**을 선택하고, **엔드포인트**를 기억해 둡니다.
 	4. **Arduino IDE**의 **파일-예제-Arduino Cloud Provider Examples-AWSIoT-AWS\_IoT\_WiFi** 메뉴 선텍
@@ -121,20 +122,20 @@
 	- 디바이스의 스케치 프로그램은 **arduino/outgoing** 토픽으로 매 5초마다 메시지를 AWS IoT Core로 보내고, **arduino/incoming** 토픽에 대한 메시지를 기다린다.
 	- **디바이스에서 AWS IoT로의 상호작용 모니터링**
 		1. **AWS IoT Core 콘솔**의 **테스트** 메뉴를 클릭
-		2. **구독 주제 (Subscribe topic)** 박스에 *arduino/outgoing*을 입력하고 **주제 구독 (Subscribe to topic)** 버튼을 클릭한다.
+		2. **구독 주제 (Subscribe topic)** 박스에 *arduino/outgoing*을 입력하고 **구독** 버튼을 클릭한다.
 
 			![](figures/subscribe-topic.png)
 			- 매 5초마다 보드에서 보낸 *hello* 메시지가 현재 시간정보와 함께 표시된다.
 			![](figures/arduino_outgoing.png)
 
 	- **AWS IoT에서 디바이스로의 상호작용 모니터링**
-		1. **주제 게시**메뉴의 **게시**섹션에서, 게시할 주제로 *arduino/incoming*을 입력하고, **주제 게시 (Publish to topic)** 버튼을 클릭한다.
+		1. **주제 게시**메뉴의 **게시**섹션에서, 게시할 주제로 *arduino/incoming*을 입력하고, **게시** 버튼을 클릭한다.
 
 			![](figures/publish-topic.png)
 
 		2. 시리얼 모니터 창에서 메시지 수신을 확인한다.
 
-			![](https://hackster.imgix.net/uploads/attachments/721807/screen_shot_2019-01-14_at_5_53_52_pm_7ncySbgoAN.png?auto=compress%2Cformat&w=680&h=510&fit=max)
+			![](figures/receive-msg.png)
 
 <a name="3"></a>
 ## 3. AWS IoT로 온도 값 전송 및 LED 제어
@@ -145,12 +146,12 @@
 	2. 검색 창에서 다음 라이브러리를 검색하여 설치
 		- ArduinoJson
 
-1. [AWS\_IoT\_DHT11](release/AWS_IoT_DHT11.zip)을 다운로드하여 Arduino IDE에서 실행한다.
+1. [AWS\_IoT\_DHT11](https://github.com/kwanulee/AWS_IoT_DHT11/archive/refs/heads/main.zip)을 다운로드하여 Arduino IDE에서 실행한다.
 2. arduino_secrets.h에서 다음 항목을 사용 환경에 맞도록 수정후, 빌드/업로드 한다.
 	- SECRET\_SSID: 무선랜 아이디
 	- SECRET\_PASS: 무선랜 패스워드
 	- SECRET\_BROKER: AWS IoT broker 엔드포인트
-	- SECRET\_CERTIFICATE: 인증서 ([2.6절](#2.6) 참조)
+	- SECRET\_CERTIFICATE: 인증서 ([2.5절](#2.5) 참조)
 3.  아두이노 IDE의 시리얼 모니터를 열고, 접속이 제대로 이루어지는 지 확인해 본다.
 	![](figures/run1.png)
 4. **AWS IoT MQTT Client**를 통해 다음 주제를 구독하여, 현재 디바이스 상태 업데이트가 제대로 수신되는 지를 확인한다.
