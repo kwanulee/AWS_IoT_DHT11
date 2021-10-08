@@ -20,12 +20,12 @@
 	![](figures/architecture1.png)
 
 - **사전 학습내용**
-	- [AWS IoT Core와 아두이노 (MKR WiFi 1010) 연결하기](aws-arduino-connect.md)
-	- [디바이스 섀도우 서비스](device-shadows.md)
+	- [AWS IoT Core와 아두이노 (MKR WiFi 1010) 연결하기 실습](aws-arduino-connect.md)
+	- [디바이스 섀도우 서비스 실습](device-shadows.md)
 
 ## 2. AWS IoT로 온도 값 전송 및 LED 제어 [실습]
 ### 2.1 아두이노 연결
-[AWS IoT Core와 아두이노 (MKR WiFi 1010) 연결하기](aws-arduino-connect.md)에서 수행한 실습 설정을 바탕으로 다음 과정을 진행합니다.
+[AWS IoT Core와 아두이노 (MKR WiFi 1010) 연결하기 실습](aws-arduino-connect.md)에서 수행한 실습 설정을 바탕으로 다음 과정을 진행합니다.
 
 - 필요한 라이브러리 설치
 	1. **Arduino IDE**의 **스케치-라이브러리 포함하기-라이브러리 관리** 메뉴 클릭

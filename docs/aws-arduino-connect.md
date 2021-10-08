@@ -1,4 +1,4 @@
-# AWS IoT Core와 아두이노 (MKR WiFi 1010) 연결하기
+# AWS IoT Core와 아두이노 (MKR WiFi 1010) 연결하기 실습
 
 ##  준비사항
 - [LED와 DHT-11 센서를 포함한 MKR WiFi 1010 보드 설정하기](arduino-setting.html)
