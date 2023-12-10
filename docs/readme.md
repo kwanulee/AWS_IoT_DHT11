@@ -43,9 +43,10 @@
 
 ### 2.2	디바이스 상태 업데이트 수신 확인
 **AWS IoT MQTT Client**를 통해 다음 주제를 구독하여, 현재 디바이스 상태 업데이트가 제대로 수신되는 지를 확인한다.
+
 - 주제: $aws/things/MyMKRWiFi1010/shadow/update
 
-	![](figures/run4.png)
+![](figures/run4.png)
 
 - 다음 주제를 추가로 구독하여, 디바이스 섀도우 서비스로부터의 응답을 확인해 본다.
 	- $aws/things/MyMKRWiFi1010/shadow/update/accepted

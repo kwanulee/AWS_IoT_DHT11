@@ -37,7 +37,7 @@
 		3. 프로그램을 보드에 업로드 시킨다.
 		3. 시리얼 모니터 창을 연다. (줄 마침 설정은 "**Both NL & CR**"로 되어 있어야 함)
 		4. 시리얼 모니터 창에서 CSR에 포함될 정보를 입력하는데, 아래 그림과 같이 **Common Name** 을 제외하곤 모두 빈칸을 입력 (아무 입력없이 **전송** 버튼을 누름)
-			- **Common Name**: *MyMKRWiFi1010* 입력
+			- **Common Name**: **AWS IoT Core**에 생성할 사물의 이름 (예, *MyMKRWiFi1010*) 입력 (**주의**: CSR 생성시 **Common Name**에 지정된 이름과 **AWS IoT Core**에 생성할 사물의 이름이 일치해야, CSR을 바탕으로 생성된 인증서가 생성된 사물을 올바로 인증할 수 있다.)
 			- **Would you like to generate...?"** 질문에 *Y*를 입력한다.
 
 			<img src="https://hackster.imgix.net/uploads/attachments/721577/screen_shot_2019-01-14_at_2_30_16_pm_Ljc1LdEu31.png?auto=compress%2Cformat&w=680&h=510&fit=max" width=500>
