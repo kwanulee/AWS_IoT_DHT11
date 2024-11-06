@@ -20,12 +20,14 @@
 - **디바이스가 AWS IoT 작업을 수행하도록 허용하려면 AWS IoT 정책을 생성하여 디바이스 인증서에 연결**해야 합니다.
 - **AWS IoT 정책을 생성하려면**
 	1. 왼쪽 탐색 창에서 **보안**을 선택하고 **정책**을 선택합니다.
-	2. **정첵** 페이지에서 [**생성**]를 선택합니다.
-	3. **정책 생성** 페이지의 **이름** 필드에 정책 이름(예: *AllowEverything*)을 입력합니다.
-		- **작업** 필드에 iot:*를 입력합니다.
-		- **리소스 ARN 필드**에 *를 입력합니다.
-		- [**허용**] 확인란을 선택합니다.
-		- **생성**을 클릭합니다.
+	2. **정첵** 페이지에서 [**정책생성**]를 선택합니다.
+	3. **정책 생성** 페이지에서 
+		- **정책속성**의 **정책이름** 필드에 정책 이름(예: *AllowEverything*)을 입력합니다.
+		- **정책문서**의 **정책효과** 필드에 *허용*를 선택합니다.
+		- **정책문서**의 **정책작업** 필드에 iot:*를 입력합니다.
+		- **정책문서**의 **정책리소스** 필드에 *를 입력합니다.
+	
+	4. 하단의 **생성**을 클릭합니다.
 
 <a name="3"></a>
 ## 3 AWS IoT Core에 아두이노 보드를 연결하기 위한 설정
@@ -40,18 +42,15 @@
 			- **Common Name**: **AWS IoT Core**에 생성할 사물의 이름 (예, *MyMKRWiFi1010*) 입력 (**주의**: CSR 생성시 **Common Name**에 지정된 이름과 **AWS IoT Core**에 생성할 사물의 이름이 일치해야, CSR을 바탕으로 생성된 인증서가 생성된 사물을 올바로 인증할 수 있다.)
 			- **Would you like to generate...?"** 질문에 *Y*를 입력한다.
 
-			<img src="https://hackster.imgix.net/uploads/attachments/721577/screen_shot_2019-01-14_at_2_30_16_pm_Ljc1LdEu31.png?auto=compress%2Cformat&w=680&h=510&fit=max" width=500>
-		5. "-----BEGIN CERTIFICATE REQUEST-----" 과 "-----END CERTIFICATE REQUEST-----" 사이에 생성된 CSR 문자열을 복사하여 텍스트 에디터에 붙여넣기 한 후, **csr.txt** 파일로 저장한다.
+			![](figures/csr_txt.png)
+		5. "-----BEGIN CERTIFICATE REQUEST-----"에서 "-----END CERTIFICATE REQUEST-----" 까지의 문자열을 복사하여 텍스트 에디터에 붙여넣기 한 후, **csr.txt** 파일로 저장한다.
 			- 이 파일은 후에 AWS 콘솔에서 X.509 인증서 생성을 위해 업로드 됨
-
-			- csr.txt 예시
-
-				<img src="figures/csr_txt.png" width=400>
+				
 
 <a name="4"></a>
 ## 4 레지스트리에 디바이스 등록
 1. AWS Management Console에 로그인하고 [AWS IoT 콘솔](https://console.aws.amazon.com/iot/home)을 엽니다.
-2. 왼쪽 탐색 창에서 **관리 > 사물**을 선택합니다.
+2. 왼쪽 탐색 창에서 **관리 > 모든 디바이스> 사물**을 선택합니다.
 3. **사물** 페이지에서 **사물 생성**을 클릭합니다.
 4. **사물 생성** 페이지에서 **단일 사물 생성**을 선택하고, **다음**을 클릭합니다.
 5. **사물 속성 지정** 페이지의 **사물 이름** 필드에 *MyMKRWiFi1010*과 같은 사물의 이름을 입력합니다.

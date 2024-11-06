@@ -1,7 +1,7 @@
 # AWS IoT로 DHT-11 센서 및 LED 제어
 
 ##  준비사항
-- [LED와 DHT-11 센서를 포함한 MKR WiFi 1010 보드 설정하기](arduino-setting.html)
+- [LED와 DHT-11 센서를 포함한 MKR WiFi 1010 보드 설정하기](arduino-setting.md)
 - 유효한 AWS 계정
 
 ---

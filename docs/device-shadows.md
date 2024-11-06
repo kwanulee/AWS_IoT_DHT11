@@ -74,26 +74,20 @@
 
 	```json
 	{
-	  "messageNumber": 4,
-	  "payload": {
-	    "state": {
-	      "reported": {
-	        "color": "red"
-	      }
-	    },
-	    "metadata": {
-	      "reported": {
-	        "color": {
-	          "timestamp": 1469564492
-	        }
-	      }
-	    },
-	    "version": 1,
-	    "timestamp": 1469564492
-	  },
-	  "qos": 0,
-	  "timestamp": 1469564492848,
-	  "topic": "$aws/things/myLightBulb/shadow/update/accepted"
+		"state": {
+			"reported": {
+				"color": "red"
+			}
+		},
+		"metadata": {
+			"reported": {
+				"color": {
+					"timestamp": 1730705701
+				}
+			}
+		},
+		"version": 4,
+		"timestamp": 1730705701
 	}
 	```
 
@@ -104,23 +98,57 @@
 
 	```json
 	{
-	    "previous":null,
-	    "current":{
-	        "state":{
-	            "reported":{
-	                "color":"red"
-	            }
-	         },
-	         "metadata":{
-	            "reported":{
-	                "color":{
-	                    "timestamp":1483467764
-	                }
-	            }
-	         },
-	         "version":1
-	     },
-	     "timestamp":1483467764
+		"previous": {
+			"state": {
+				"desired": {
+					"welcome": "aws-iot"
+				},
+				"reported": {
+					"welcome": "aws-iot"
+				}
+			},
+			"metadata": {
+				"desired": {
+					"welcome": {
+						"timestamp": 1730706763
+					}
+				},
+				"reported": {
+					"welcome": {
+						"timestamp": 1730706763
+					}
+				}
+			},
+			"version": 23
+		},
+		"current": {
+			"state": {
+				"desired": {
+					"welcome": "aws-iot"
+				},
+				"reported": {
+					"welcome": "aws-iot",
+					"color": "red"
+				}
+			},
+			"metadata": {
+				"desired": {
+					"welcome": {
+						"timestamp": 1730706763
+					}
+				},
+				"reported": {
+					"welcome": {
+						"timestamp": 1730706763
+					},
+					"color": {
+						"timestamp": 1730706856
+					}
+				}
+			},
+			"version": 24
+		},
+		"timestamp": 1730706856
 	}
 	```
 
@@ -156,26 +184,32 @@
 
 	```json
 	{
-	  "messageNumber": 1,
-	  "payload": {
-	    "state": {
-	      "reported": {
-	        "color": "red"
-	      }
-	    },
-	    "metadata": {
-	      "reported": {
-	        "color": {
-	          "timestamp": 1469564492
-	        }
-	      }
-	    },
-	    "version": 1,
-	    "timestamp": 1469564571
-	  },
-	  "qos": 0,
-	  "timestamp": 1469564571533,
-	  "topic": "$aws/things/myLightBulb/shadow/get/accepted"
+		"state": {
+			"desired": {
+				"welcome": "aws-iot"
+			},
+			"reported": {
+				"welcome": "aws-iot",
+				"color": "red"
+			}
+		},
+		"metadata": {
+			"desired": {
+				"welcome": {
+					"timestamp": 1730706763
+				}
+			},
+			"reported": {
+				"welcome": {
+					"timestamp": 1730706763
+				},
+				"color": {
+					"timestamp": 1730707090
+				}
+			}
+		},
+		"version": 25,
+		"timestamp": 1730708406
 	}
 	```
 
@@ -208,26 +242,20 @@
 
 	```json
 	{
-	  "messageNumber": 5,
-	  "payload": {
-	    "state": {
-	      "desired": {
-	        "color": "green"
-	      }
-	    },
-	    "metadata": {
-	      "desired": {
-	        "color": {
-	          "timestamp": 1469564658
-	        }
-	      }
-	    },
-	    "version": 2,
-	    "timestamp": 1469564658
-	  },
-	  "qos": 0,
-	  "timestamp": 1469564658286,
-	  "topic": "$aws/things/myLightBulb/shadow/update/accepted"
+		"state": {
+			"desired": {
+				"color": "green"
+			}
+		},
+		"metadata": {
+			"desired": {
+				"color": {
+					"timestamp": 1730709122
+				}
+			}
+		},
+		"version": 31,
+		"timestamp": 1730709122
 	}
 	```
 
@@ -235,69 +263,84 @@
 
 	```json
 	{
-	  "messageNumber": 1,
-	  "payload": {
-	    "version": 2,
-	    "timestamp": 1469564658,
-	    "state": {
-	      "color": "green"
-	    },
-	    "metadata": {
-	      "color": {
-	        "timestamp": 1469564658
-	      }
-	    }
-	  },
-	  "qos": 0,
-	  "timestamp": 1469564658309,
-	  "topic": "$aws/things/myLightBulb/shadow/update/delta"
+		"version": 31,
+		"timestamp": 1730709122,
+		"state": {
+			"color": "green"
+		},
+		"metadata": {
+			"color": {
+				"timestamp": 1730709122
+			}
+		}
 	}
 	```
 
 4. 새도우의 업데이트가 완료되면 디바이스 섀도우 서비스가 **$aws/things/myLightBulb/shadow/update/documents** 주제에 다음 메시지를 게시합니다.
 
 	```json
-	{
-	    "previous":{
-	      "state":{
-	        "reported":{
-	          "color":"red"
-	        }
-	      },
-	      "metadata":{
-	        "reported":{
-	          "color":{
-	            "timestamp":1483467764
-	          }
-	        }
-	      },
-	      "version":1
-	    },
-	    "current":{
-	      "state":{
-	        "desired":{
-	          "color":"green"
-	        },
-	        "reported":{
-	          "color":"red"
-	        }
-	      },
-	      "metadata":{
-	        "desired":{
-	          "color":{
-	            "timestamp":1483468612
-	          }
-	        },
-	        "reported":{
-	          "color":{
-	            "timestamp":1483467764
-	          }
-	        }
-	      },
-	      "version":2
-	    },
-	    "timestamp":1483468612
-	}
+{
+  "previous": {
+    	"state": {
+      		"desired": {
+        		"welcome": "aws-iot"
+      		},
+      		"reported": {
+        		"welcome": "aws-iot",
+        		"color": "red"
+      		}
+    	},
+    	"metadata": {
+      		"desired": {
+        		"welcome": {
+          			"timestamp": 1730708697
+        		}
+      		},
+      		"reported": {
+        		"welcome": {
+          			"timestamp": 1730708697
+        		},
+        		"color": {
+          			"timestamp": 1730708737
+        		}
+      		}
+    	},
+    	"version": 30
+  	},
+  	"current": {
+    	"state": {
+      		"desired": {
+        		"welcome": "aws-iot",
+        		"color": "green"
+      		},
+      		"reported": {
+        		"welcome": "aws-iot",
+        		"color": "red"
+      		}
+    	},
+    	"metadata": {
+      		"desired": {
+        		"welcome": {
+          			"timestamp": 1730708697
+        		},
+        		"color": {
+          			"timestamp": 1730709122
+        		}
+      		},
+      		"reported": {
+        		"welcome": {
+          			"timestamp": 1730708697
+        		},
+        		"color": {
+          			"timestamp": 1730708737
+        		}
+      		}
+    	},
+    	"version": 31
+  	},
+  	"timestamp": 1730709122
+}
+
 	```
 
 5. 전구가 **$aws/things/myLightBulb/shadow/update/delta** 주제로 구독하고 있으면, 전구는 메시지를 수신하고, 색상을 변경하고, 새 상태를 게시합니다.
@@ -306,30 +349,24 @@
 
 	```json
 	{
-	  "messageNumber": 6,
-	  "payload": {
-	    "state": {
-	      "reported": {
-	        "color": "green"
-	      },
-	      "desired": null
-	    },
-	    "metadata": {
-	      "reported": {
-	        "color": {
-	          "timestamp": 1469564801
-	        }
-	      },
-	      "desired": {
-	        "timestamp": 1469564801
-	      }
-	    },
-	    "version": 3,
-	    "timestamp": 1469564801
-	  },
-	  "qos": 0,
-	  "timestamp": 1469564801673,
-	  "topic": "$aws/things/myLightBulb/shadow/update/accepted"
+  		"state": {
+    		"reported": {
+      			"color": "green"
+    		},
+    		"desired": null
+  		},
+  		"metadata": {
+    		"reported": {
+      			"color": {
+        			"timestamp": 1730709812
+      			}
+    		},
+    		"desired": {
+      			"timestamp": 1730709812
+    		}
+  		},
+  		"version": 32,
+  		"timestamp": 1730709812
 	}
 	```
 
@@ -337,37 +374,57 @@
 
 	```json
 	{
-	    "previous":{
-	    "state":{
-	      "reported":{
-	        "color":"red"
-	      }
-	    },
-	    "metadata":{
-	         "reported":{
-	              "color":{
-	                  "timestamp":1483470355
-	              }
-	          }
-	      },
-	      "version":3
-	    },
-	    "current":{
-	      "state":{
-	        "reported":{
-	          "color":"green"
-	        }
-	      },
-	      "metadata":{
-	        "reported":{
-	          "color":{
-	            "timestamp":1483470364
-	          }
-	        }
-	      },
-	      "version":4
-	    },
-	    "timestamp":1483470364
+		"previous": {
+			"state": {
+				"desired": {
+					"welcome": "aws-iot",
+					"color": "green"
+				},
+				"reported": {
+					"welcome": "aws-iot",
+					"color": "red"
+				}
+			},
+			"metadata": {
+				"desired": {
+					"welcome": {
+						"timestamp": 1730708697
+					},
+					"color": {
+						"timestamp": 1730709122
+					}
+				},
+				"reported": {
+					"welcome": {
+						"timestamp": 1730708697
+					},
+					"color": {
+						"timestamp": 1730708737
+					}
+				}
+			},
+			"version": 31
+		},
+		"current": {
+			"state": {
+				"reported": {
+					"welcome": "aws-iot",
+					"color": "green"
+				}
+			},
+			"metadata": {
+				"reported": {
+					"welcome": {
+						"timestamp": 1730708697
+					},
+					"color": {
+						"timestamp": 1730709812
+					}
+				}
+			},
+			"version": 32
+		},
+		"timestamp": 1730709812
 	}
 	```
 - [**실습**] 이 시나리오를 시뮬레이션하기 위해서  **AWS IoT MQTT Client**를 사용하여 다음 절차를 수행합니다.
@@ -401,7 +458,7 @@
 		        "reported":{
 		            "color":"green"
 		        },
-		        "desired":null}
+		        "desired":null
 		    }
 		}
 		```
